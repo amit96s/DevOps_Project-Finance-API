@@ -46,7 +46,7 @@ class All_last10(MethodView):
             top10['place'] = range(1, 11)
             return jsonify(top10.to_dict(orient='records')), 200
         except Exception:
-            return {"Message": "Sorry, we have a problem with this address, we are taking care of it"}, 404
+            return jsonify({"Message": "Sorry, we have a problem with this address, we are taking care of it"}, 404)
 
 
 
@@ -65,7 +65,7 @@ class All_Tickers(MethodView):
             close_prices['Date'] = close_prices['Date'].dt.strftime("%Y-%m-%d")
             return jsonify(close_prices.iloc[::-1].to_dict(orient='records')), 200
         except Exception:
-            return {"Message": "Sorry, we have a problem with this address, we are taking care of it"}, 404
+            return jsonify({"Message": "Sorry, we have a problem with this address, we are taking care of it"}, 404)
 
 
 
@@ -104,4 +104,4 @@ class All_Tickers(MethodView):
                 return jsonify({"Message":f'{answer}'}),404
 
         except:
-            return {"Message":"Sorry, service is not available now due to Openai API issue"}
+            return jsonify({"Message":"Sorry, service is not available now due to Openai API issue"})

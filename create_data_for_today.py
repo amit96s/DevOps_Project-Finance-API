@@ -64,7 +64,7 @@ def pull_todays_data():
                 server.login(sender_email, app_password)
                 server.sendmail(sender_email, receiver_email, message.as_string())
 
-            return {"Message:":"Sorry for the inconvenience, but due to a server malfunction I am unable to display"
-                               " data for the last day."}
+            return jsonify({"Message:":"Sorry for the inconvenience, but due to a server malfunction I am unable to display"
+                               " data for the last day."})
 
 pull_todays_data()
