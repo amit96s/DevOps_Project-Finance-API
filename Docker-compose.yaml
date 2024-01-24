@@ -1,0 +1,6 @@
+version: '3.1'
+services:
+  api_project:
+    image: amit1shemesh/finance_api
+    ports:
+      - "5000:5000"
