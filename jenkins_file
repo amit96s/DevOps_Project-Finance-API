@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    triggers {
+        cron('0 3 * * *') // Schedule for 5 AM Israel time every day
+    }
+
+    stages {
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    // Your docker run command
+                    sh 'docker run --network="host" amit1shemesh/finance_api_daily_tests:latest'
+                }
+            }
+        }
+    }
